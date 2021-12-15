@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Project Manager</title>
+  <title>Dragons Rouen</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/logo-esig.png" rel="icon">
+  <link href="assets/img/logoDragon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -32,15 +32,15 @@
   <!-- ======= navbar ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo" style="color: #fff;"><a href="index.php"></a>Billeterie Match</h1>
+      <h1 class="logo" style="color: #fff;"><a href="index.php"></a>Billetterie Dragons Rouen</h1>
 
 
       <!-- NAVBAR -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="#compte">Mon compte</a></li>
-          <li><a class="nav-link scrollto" href="#projects">Panier</a></li>
+          <li><a class="nav-link scrollto" href="#infos">Informations</a></li>
+          <li><a class="nav-link scrollto" href="#matchs">Matchs</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contacts</a></li>
           <li><a class="getstarted scrollto" href="connexionPage.php">Se connecter</a></li>
         </ul>
@@ -78,7 +78,7 @@
 
 
     <!-- a propos -->
-    <section id="about" class="about">
+    <section id="infos" class="about">
       <div class="container">
 
         <div class="row">
@@ -86,14 +86,14 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>Project Manager</h3>
+            <h3>Billetterie Dragon de Rouen</h3>
             <p class="fst-italic">
-              Une plateforme de centralisation de l'information pour les projets étudiant.
+              Une plateforme de centralisation de l'information pour le club des dragons de rouen.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Permet de consulter les informations relatives à chaque projet.</li>
-              <li><i class="bi bi-check-circle"></i> Permet à 3 types d'utilisateurs différents de se connecter.</li>
-              <li><i class="bi bi-check-circle"></i> Permet à un étudiant de s'inscrire dans un projet.</li>
+              <li><i class="bi bi-check-circle"></i> Permet de consulter les informations relatives à chaque matchs.</li>
+              <li><i class="bi bi-check-circle"></i> Permet d'acheter des places ou du merch avec une cryptomonnaie.</li>
+              <li><i class="bi bi-check-circle"></i> Un token, le FLAM, qui centralise toutes les transactions.</li>
             </ul>
             <a href="#" class="read-more">En savoir plus</a>
           </div>
@@ -106,32 +106,32 @@
 
 
     <!-- compteurs -->
-    <section id="counts" class="counts">
+    <section id="matchs" class="counts">
       <div class="container">
 
         <div class="row counters">
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_etudiants(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Étudiants</p>
+            <span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Matchs</p>
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_projets(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projets</p>
+            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Nuls</p>
           </div>
 
           <div class="col-lg-4 col-6 text-center">
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_inscrits(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Inscriptions</p>
+            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Victoires</p>
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_profs(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Professeurs</p>
+            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Défaites</p>
           </div>
 
         </div>
@@ -147,20 +147,22 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Détails des projets</h2>
-          <p>Voici un bref récapitulatif des projets étudiants en cours, pour plus d'information, veuillez vous connecter.</p>
+          <h2>Détails des matchs à venir</h2>
+          <p>Voici un bref récapitulatif des prochains matchs de l'équipe des dragons de rouen, pour plus d'information, veuillez vous connecter.</p>
         </div>
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <h4><a href="#">Match X</a></h4>
-              <p>Desc X</p>
+              <p>Adversaire : X</p>
+              <hr>
+              <p>Date : X</p>
               <hr>
               <p>Places totales : X</p>
               <hr>
               <p>Places restantes : X</p>
               <hr>
-              <p><a href=''>Lien de la plaquette</a></p>
+              <p><a href=''>Lien de la billetterie</a></p>
             </div>
           </div>
         </div>
@@ -182,16 +184,16 @@
           <div class="col-lg-6">
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
-              <h3>Adresse</h3>
-              <p>Technopôle du Madrillet, Av. Galilée, 76800 Saint-Étienne-du-Rouvray</p>
+              <h3>BUREAUX</h3>
+              <p>25 rue Jean-Philippe Rameau</br>76000 - ROUEN</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="info-box  mb-4">
-              <i class="bx bx-envelope"></i>
-              <h3>Email</h3>
-              <p>contact@esigelec.fr</p>
+              <i class="bx bx-map"></i>
+              <h3>PATINOIRE</h3>
+              <p>Avenue Jacques Chastellain</br>76000 - ROUEN</p>
             </div>
           </div>
 
@@ -199,7 +201,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-phone-call"></i>
               <h3>Téléphone</h3>
-              <p>+33 XX XX XX XX</p>
+              <p>02 35 88 96 88</p></br>
             </div>
           </div>
 
@@ -218,13 +220,12 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>ESIGELEC</h3>
+            <h3>DRAGONS</h3>
             <p>
-              Technopôle du Madrillet,<br>
-              Av. Galilée, 76800 Saint-Étienne-du-Rouvray<br>
+              25 rue Jean-Philippe Rameau,<br>
+              76000 Rouen<br>
               France <br><br>
-              <strong>Téléphone:</strong> +33 XX XX XX XX<br>
-              <strong>Email:</strong> info@esigelec.fr<br>
+              <strong>Téléphone:</strong> 02 35 88 96 88<br>
             </p>
           </div>
 
@@ -232,8 +233,8 @@
             <h4>Liens utiles</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#hero">Accueil</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">À propos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#projects">Projets</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#infos">À propos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#matchs">Matchs</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contacts</a></li>
             </ul>
           </div>
@@ -247,7 +248,7 @@
       <div class="copyright-wrap d-md-flex py-4">
         <div class="me-md-auto text-center text-md-start">
           <div class="copyright">
-            &copy; Copyright <strong><span>Project Manager</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Dragons de Rouen</span></strong>. All Rights Reserved
           </div>
         </div>
       </div>
