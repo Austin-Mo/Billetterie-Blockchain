@@ -234,13 +234,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-size: 14px;
-  color: #2c4964;
+  color: #FCBE19;
 }
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #5846f9;
+  color: #FCBE19;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(28, 47, 65, 0.9);
+  background: rgba(252, 190, 25, 0.9);
   transition: 0.3s;
   z-index: 999;
 }
@@ -322,13 +322,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-mobile a, .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #2c4964;
+  color: #FCBE19;
 }
 .navbar-mobile a:hover:before, .navbar-mobile li:hover > a:before, .navbar-mobile .active:before {
   visibility: hidden;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #5846f9;
+  color: #FCBE19;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #5846f9;
+  color: #FCBE19;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
@@ -542,11 +542,11 @@ section {
   border-radius: 5px;
   transition: 0.5s;
   color: #fff;
-  background: linear-gradient(45deg, #5846f9 0%, #7b27d8 100%);
+  background: linear-gradient(45deg, #FCBE19 0%, #FCBE19 100%);
   position: relative;
 }
 .about .content .read-more:hover {
-  background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%);
+  background: linear-gradient(180deg, #BE8900  0%, #BE8900  100%);
 }
 .about .content .read-more i {
   font-size: 22px;
@@ -559,7 +559,7 @@ section {
 # Counts
 --------------------------------------------------------------*/
 .counts {
-  background: linear-gradient(90deg, rgba(88, 70, 249, 0.5) 0%, rgba(123, 39, 216, 0.5) 100%), url("../img/counts-bg.png") center center no-repeat;
+  background: url("../img/counts-bg.png") center center no-repeat;
   padding: 80px 0 60px 0;
 }
 .counts .counters span {

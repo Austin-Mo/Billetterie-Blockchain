@@ -71,7 +71,8 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez-vous à votre compte :</h5>
 
                   <?php 
-                  if(isset($_COOKIE['emailSigninError']))
+                  //Gestion des erreurs
+                  /*if(isset($_COOKIE['emailSigninError']))
                   {
                     if ($_COOKIE['emailSigninError']==1)
                     {
@@ -84,7 +85,7 @@
                     {
                       echo "<h6 style='color:red; font-style: italic;'>Mauvais mot de passe</h6>";
                     }
-                  }
+                  }*/
                   ?>
 
                   <div class="form-outline mb-4">
