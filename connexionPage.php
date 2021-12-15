@@ -34,7 +34,7 @@
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block">
                 <div class="container-img">
-                  <img src="assets/img/logoDragon.png" style="height:25vw; margin: 7vw 0 0 1vw;" />
+                  <img src="assets/img/logoDragon.png" style=" margin: 7vw 0 0 1vw;" />
                 </div>
                 <style type="text/css">
                   .container-img{
@@ -42,8 +42,8 @@
                    overflow:hidden;
                  }
                  .container-img img{
-                   width:100%;
-                   height:100%;
+                   width:95%;
+                   height:95%;
                    -webkit-transition: all 0.2s;
                    -moz-transition: all 0.2s;
                    -ms-transition: all 0.2s;
@@ -51,7 +51,7 @@
                    transition: all 0.2s;
                  }
                  .container-img:hover img{
-                   transform:rotate(5deg) scale(1.2);
+                   transform:rotate(360deg) scale(1);
                  }
                </style>
              </div>
