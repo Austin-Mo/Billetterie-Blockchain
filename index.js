@@ -74,8 +74,7 @@ var abi = JSON.parse( `[
 	]` );
 
 //contract instance
-contract = new web3.eth.Contract(abi, contractAddress);
-
+billeterieSmartContract = new web3.eth.Contract(abi, contractAddress);
 
 var abiMatch = JSON.parse( `[ 
 	{ 
@@ -228,11 +227,8 @@ web3.eth.getAccounts(function(err, accounts) {
 
 //Smart contractBilletterie functions
 function getMatchs() {
-  contract.methods.getAddresses().call().then( function( adresses ) {
+  billeterieSmartContract.methods.getAddresses().call().then( function( adresses ) {
   	console.log("==>",adresses);
-  	htmlString = '0';
-  	document.getElementById('matchAddress').innerHTML = adresses[0];
-
 
     // contractAddressMatch and abiMatch are setted after contract deploy
 		var contractAddressMatch = adresses[0];
@@ -240,9 +236,18 @@ function getMatchs() {
 		contractMatch = new web3.eth.Contract(abiMatch, contractAddressMatch);
 
 		contractMatch.methods.getMatch().call().then( function( infos ) {
-			htmlString = ' '+infos[0]+' vs '+infos[1];
+			htmlString ='<div class="icon-box">'+
+				              '<h4><a>'+infos[0]+' vs '+infos[1]+'</a></h4>'+
+				              '<p>Date : '+infos[2]+'</p>'+
+				              '<hr>'+
+				              '<p>Places totales : '+infos[3]+'</p>'+
+				              '<hr>'+
+				              '<p>Places restantes : '+infos[4]+'</p>'+
+				              '<hr>'+
+				            '</div>'+
+				          '</div>';
 	  	console.log("==>",infos);
-	  	document.getElementById('matchAddress').innerHTML = htmlString;
+	  	document.getElementById('allMatchs').innerHTML = htmlString;
 
   	});
   });    
