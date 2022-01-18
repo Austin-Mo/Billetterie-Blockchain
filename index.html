@@ -25,9 +25,20 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="web3.min.js"></script>
+  <script src="index.js"></script>
 </head>
 
 <body>
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+        getMatchs();
+    });
+  </script>
 
   <!-- ======= navbar ======= -->
   <header id="header" class="fixed-top ">
@@ -144,16 +155,15 @@
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <h4><a href="#">Match X</a></h4>
-              <p>Adversaire : X</p>
+              <h4><a>Match </br><span id ="matchAddress"></span></a></h4>
+              <p>Adversaire : <span id ="matchs"></span></p>
               <hr>
-              <p>Date : X</p>
+              <p>Date : <span id ="matchs"></span></p>
               <hr>
-              <p>Places totales : X</p>
+              <p>Places totales : <span id ="matchs"></span></p>
               <hr>
-              <p>Places restantes : X</p>
+              <p>Places restantes : <span id ="matchs"></span></p>
               <hr>
-              <p><a href=''>Lien de la billetterie</a></p>
             </div>
           </div>
         </div>

@@ -22,58 +22,191 @@ else {
 
 console.log (window.web3.currentProvider)
 
-// contractAddress and abi are setted after contract deploy
-var contractAddress = '0x024540677225E8f53D3E35FDD53428184B7cC947';
+// contractAddress and abi of the Billeterie_Smart_Contract are setted after contract deploy
+var contractAddress = '0x1F9d574bC6DCdbb472EEB1F66C4e441FaD2773c6';
 var abi = JSON.parse( `[
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_memo",
-				"type": "string"
-			}
-		],
-		"name": "setMemo",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getMemo",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "memo",
-				"type": "string"
-			}
-		],
-		"name": "EventMemo",
-		"type": "event"
-	}
-]` );
+		{ 
+			"anonymous": false, 
+			"inputs": 
+			[ 
+				{ 
+					"indexed": false, 
+					"internalType": "uint256", 
+					"name": "taille", 
+					"type": "uint256" 
+				}, 
+				{ 
+					"indexed": false, 
+					"internalType": "address", 
+					"name": "address_billet", 
+					"type": "address" 
+				} 
+			], 
+			"name": "NewAddress", 
+			"type": "event"
+		}, 
+		{ 
+			"inputs": [ 
+									{ 
+										"internalType": "address", 
+										"name": "address_billet", 
+										"type": "address" 
+									} 
+								], 
+			"name": "addAddress", 
+			"outputs": [], 
+			"stateMutability": "nonpayable", 
+			"type": "function" 
+		},
+		{ 
+			"inputs": [], 
+			"name": "getAddresses", 
+			"outputs": 	[ 
+										{ 
+											"internalType": "address[]", 
+											"name": "", 
+											"type": "address[]" 
+										} 
+									], 
+			"stateMutability": "view", 
+			"type": "function" 
+		}
+	]` );
 
 //contract instance
 contract = new web3.eth.Contract(abi, contractAddress);
+
+
+var abiMatch = JSON.parse( `[ 
+	{ 
+		"inputs": [ 
+								{ 
+									"internalType": "string", 
+									"name": "_homeTeam", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "string", 
+									"name": "_guestTeam", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "string", 
+									"name": "_matchDate", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "_numberOfTickets", 
+									"type": "uint256" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "_ticketPrice", 
+									"type": "uint256" 
+								} 
+							], 
+		"stateMutability": "nonpayable", 
+		"type": "constructor" 
+	}, 
+	{ 
+		"inputs": [ 
+								{ 
+									"internalType": "address", 
+									"name": "_user", 
+									"type": "address" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "_amount", 
+									"type": "uint256" 
+								} 
+							], 
+		"name": "buyTicket", 
+		"outputs": [], 
+		"stateMutability": "payable", 
+		"type": "function" 
+	}, 
+	{ 
+		"inputs": [], 
+		"name": "getMatch", 
+		"outputs": [ 
+								{ 
+									"internalType": "string", 
+									"name": "", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "string", 
+									"name": "", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "string", 
+									"name": "", 
+									"type": "string" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "", 
+									"type": "uint256" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "", 
+									"type": "uint256" 
+								} 
+							], 
+		"stateMutability": "view", 
+		"type": "function" 
+	}, 
+	{ 
+		"inputs": [ 
+								{ 
+									"internalType": "address", 
+									"name": "", 
+									"type": 
+									"address" 
+								} 
+							], 
+		"name": "ticketHolders", 
+		"outputs": 	[ 
+									{ 
+										"internalType": "uint256", 
+										"name": "", 
+										"type": "uint256" 
+									} 
+								], 
+		"stateMutability": "view", 
+		"type": "function" 
+	},
+	{ 
+		"inputs": [ 
+								{ 
+									"internalType": "address", 
+									"name": "_user", 
+									"type": "address" 
+								}, 
+								{ 
+									"internalType": "uint256", 
+									"name": "_amount", 
+									"type": "uint256" 
+								} 
+							], 
+		"name": "useTickets", 
+		"outputs": [], 
+		"stateMutability": "nonpayable", 
+		"type": "function" 
+	}, 
+	{ 
+		"inputs": [], 
+		"name": "withdraw", 
+		"outputs": [], 
+		"stateMutability": "nonpayable", 
+		"type": "function" 
+	} 
+]` );
+
 
 // Accounts
 var account;
@@ -92,21 +225,26 @@ web3.eth.getAccounts(function(err, accounts) {
 });
 
 
-//Smart contract functions
-function registerSetMemo() {
-  memo = $("#newMemo").val();
-  contract.methods.setMemo (memo).send( {from: account}).then( function(tx) { 
-    console.log("Transaction: ", tx); 
-  });
-  $("#newMemo").val('');
-}
 
-function registerGetMemo() {
-  contract.methods.getMemo().call().then( function( memo ) { 
+//Smart contractBilletterie functions
+function getMatchs() {
+  contract.methods.getAddresses().call().then( function( adresses ) {
+  	console.log("==>",adresses);
+  	htmlString = '0';
+  	document.getElementById('matchAddress').innerHTML = adresses[0];
 
-    console.log("memo: ", memo);
-    document.getElementById('lastMemo').innerHTML = memo;
- //   $("#lastMemo").html(memo);
+
+    // contractAddressMatch and abiMatch are setted after contract deploy
+		var contractAddressMatch = adresses[0];
+		//contract instance
+		contractMatch = new web3.eth.Contract(abiMatch, contractAddressMatch);
+
+		contractMatch.methods.getMatch().call().then( function( infos ) {
+			htmlString = ' '+infos[0]+' vs '+infos[1];
+	  	console.log("==>",infos);
+	  	document.getElementById('matchAddress').innerHTML = htmlString;
+
+  	});
   });    
 }
 
