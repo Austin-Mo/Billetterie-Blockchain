@@ -20,9 +20,6 @@ else {
   window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
 }
 
-/*    
-<https://teams.microsoft.com/l/message/19:8d026b03e1f54949ad578128360784eb@thread.tacv2/1607357940399?tenantId=371cb156-9558-4286-a3cd-3059699b890c&amp;groupId=50127673-b09e-431f-bf4a-f08643bc8fa1&amp;parentMessageId=1607344313057&amp;teamName=Blockchain : de la théorie au déploiement&amp;channelName=Général&amp;createdTime=1607357940399>
-*/
 console.log (window.web3.currentProvider)
 
 // contractAddress and abi are setted after contract deploy
@@ -97,7 +94,6 @@ web3.eth.getAccounts(function(err, accounts) {
 
 //Smart contract functions
 function registerSetMemo() {
-
   memo = $("#newMemo").val();
   contract.methods.setMemo (memo).send( {from: account}).then( function(tx) { 
     console.log("Transaction: ", tx); 
