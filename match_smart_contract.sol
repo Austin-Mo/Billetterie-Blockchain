@@ -21,7 +21,7 @@ contract Ticket {
     }
 
     function buyTicket(address _user, uint256 _amount) public payable {
-        require(numberOfTickets >= _amount);
+        numberOfTickets >= _amount;
         require(msg.value == ticketPrice * _amount);
         addTickets(_user, _amount);
         numberOfTickets = numberOfTickets - _amount;

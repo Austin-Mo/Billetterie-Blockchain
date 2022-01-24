@@ -13,7 +13,7 @@ if (window.ethereum) {
   }
 }
 else if (window.web3) {
-	window.web3 = new Web3(window.web3.currentProvider)
+	window.web3 = new Web3("http://localhost:3300")
   // no need to ask for permission
 }
 else {
@@ -23,7 +23,7 @@ else {
 console.log (window.web3.currentProvider)
 
 // contractAddress and abi of the Billeterie_Smart_Contract are setted after contract deploy
-var contractBilleterieAddress = '0x1F9d574bC6DCdbb472EEB1F66C4e441FaD2773c6';
+var contractBilleterieAddress = '0x5F88e7198222dD4F793aE8C4950e1958C0e0EF1c';
 var abiBilleterie = JSON.parse( `[
 { 
 	"anonymous": false, 
@@ -76,137 +76,29 @@ var abiBilleterie = JSON.parse( `[
 //contract instance
 billeterieSmartContract = new web3.eth.Contract(abiBilleterie, contractBilleterieAddress);
 
-var abiMatch = JSON.parse( `[ 
-{ 
-	"inputs": [ 
-	{ 
-		"internalType": "string", 
-		"name": "_homeTeam", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "string", 
-		"name": "_guestTeam", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "string", 
-		"name": "_matchDate", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "_numberOfTickets", 
-		"type": "uint256" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "_ticketPrice", 
-		"type": "uint256" 
-	} 
-	], 
-	"stateMutability": "nonpayable", 
-	"type": "constructor" 
-}, 
-{ 
-	"inputs": [ 
-	{ 
-		"internalType": "address", 
-		"name": "_user", 
-		"type": "address" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "_amount", 
-		"type": "uint256" 
-	} 
-	], 
-	"name": "buyTicket", 
-	"outputs": [], 
-	"stateMutability": "payable", 
-	"type": "function" 
-}, 
-{ 
-	"inputs": [], 
-	"name": "getMatch", 
-	"outputs": [ 
-	{ 
-		"internalType": "string", 
-		"name": "", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "string", 
-		"name": "", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "string", 
-		"name": "", 
-		"type": "string" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "", 
-		"type": "uint256" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "", 
-		"type": "uint256" 
-	} 
-	], 
-	"stateMutability": "view", 
-	"type": "function" 
-}, 
-{ 
-	"inputs": [ 
-	{ 
-		"internalType": "address", 
-		"name": "", 
-		"type": 
-		"address" 
-	} 
-	], 
-	"name": "ticketHolders", 
-	"outputs": 	[ 
-	{ 
-		"internalType": "uint256", 
-		"name": "", 
-		"type": "uint256" 
-	} 
-	], 
-	"stateMutability": "view", 
-	"type": "function" 
-},
-{ 
-	"inputs": [ 
-	{ 
-		"internalType": "address", 
-		"name": "_user", 
-		"type": "address" 
-	}, 
-	{ 
-		"internalType": "uint256", 
-		"name": "_amount", 
-		"type": "uint256" 
-	} 
-	], 
-	"name": "useTickets", 
-	"outputs": [], 
-	"stateMutability": "nonpayable", 
-	"type": "function" 
-}, 
-{ 
-	"inputs": [], 
-	"name": "withdraw", 
-	"outputs": [], 
-	"stateMutability": "nonpayable", 
-	"type": "function" 
-} 
-]` );
+var abiMatch = JSON.parse( `[ { "inputs": [ { "internalType": "string", "name": "_homeTeam", "type": "string" }, { "internalType": "string", "name": "_guestTeam", "type": "string" }, { "internalType": "string", "name": "_matchDate", "type": "string" }, { "internalType": "uint256", "name": "_numberOfTickets", "type": "uint256" }, { "internalType": "uint256", "name": "_ticketPrice", "type": "uint256" } ], "stateMutability": "nonpayable", "type": "constructor" }, { "inputs": [ { "internalType": "address", "name": "_user", "type": "address" }, { "internalType": "uint256", "name": "_amount", "type": "uint256" } ], "name": "buyTicket", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [], "name": "getMatch", "outputs": [ { "internalType": "string", "name": "", "type": "string" }, { "internalType": "string", "name": "", "type": "string" }, { "internalType": "string", "name": "", "type": "string" }, { "internalType": "uint256", "name": "", "type": "uint256" }, { "internalType": "uint256", "name": "", "type": "uint256" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "", "type": "address" } ], "name": "ticketHolders", "outputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "address", "name": "_user", "type": "address" }, { "internalType": "uint256", "name": "_amount", "type": "uint256" } ], "name": "useTickets", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "withdraw", "outputs": [], "stateMutability": "nonpayable", "type": "function" } ]` );
 
-
+var abiMatch = JSON.parse(`[ 
+	{ 
+		"constant": false, 
+		"inputs": [ 
+			{ 
+				"name": "from", 
+				"type": "address" 
+			}, 
+			{ 
+				"name": "tokens", 
+				"type": "uint256" 
+			}, 
+			{ 
+				"name": "token", 
+				"type": "address" 
+			}, 
+			{ 
+				"name": "data", 
+				"type": "bytes" 
+			} ], 
+		"name": "receiveApproval", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" } ]`);
 // Accounts
 var account;
 web3.eth.getAccounts(function(err, accounts) {
@@ -228,15 +120,15 @@ web3.eth.getAccounts(function(err, accounts) {
 function getMatchs() {
 	htmlString =''; 
 	billeterieSmartContract.methods.getAddresses().call().then( function( addresses ) {
-	  	console.log("addresses ==>",addresses.length);
+		console.log('addresses ==>', addresses);
 	  	for (let i = 0; i < addresses.length; i++) {
 	    // contractAddressMatch and abiMatch are setted after contract deploy
 			var contractAddressMatch = addresses[i];
 			//contract instance
 			contractMatch = new web3.eth.Contract(abiMatch, contractAddressMatch);
+				console.log('methods ==>', contractMatch.methods);
 
 			contractMatch.methods.getMatch().call().then( function( infos ) {
-				console.log("infos ==>",infos);
 				if(i%3 == 0){
 					htmlString += '<div class="row gy-4">';
 				}
@@ -260,7 +152,6 @@ function getMatchs() {
 			});
 		}
 		setTimeout(function(){ 
-			console.log("htmlString ==>",htmlString);
 	  		document.getElementById('allMatchs').innerHTML = htmlString; 
 	  	},2000);
 	  	
@@ -275,7 +166,6 @@ function buyTicket(id) {
 		console.log(addresses[id]);
 		//contract instance
 		contractMatch = new web3.eth.Contract(abiMatch, contractAddressMatch);
-
 		contractMatch.methods.buyTicket(account,1).send( {from: account});
 	});   
 }
@@ -284,7 +174,7 @@ function buyTicket(id) {
 
 
 // signal
-
+/*
 billeterieSmartContract.events.EventMemo({
 	fromBlock: 0
 }, function(error, event){ console.log(event); })
@@ -302,7 +192,7 @@ billeterieSmartContract.events.EventMemo({
 .on('error', function(error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
 	console.log(error, receipt);
 });
-
+*/
 
 
 
