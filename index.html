@@ -35,14 +35,14 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-        getMatchs();
+      getMatchs();
     });
   </script>
 
   <!-- ======= navbar ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo" style="color: #fff;"><a href="index.php"></a>Billetterie Dragons Rouen</h1>
+      <h1 class="logo" style="color: #fff;"><a href="index.php"></a>Billetterie Dragons Rouen</h1 >
 
 
       <!-- NAVBAR -->
@@ -112,13 +112,13 @@
 
         <div class="row counters">
 
-          <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1" class="purecounter"></span>
+          <div class="col-lg-2 col-6 text-center" id="nbMatchs">
+            <span data-purecounter-start="0" data-purecounter-end="44" data-purecounter-duration="1" class="purecounter"></span>
             <p>Matchs</p>
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
             <p>Nuls</p>
           </div>
 
@@ -126,12 +126,12 @@
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
             <p>Victoires</p>
           </div>
 
           <div class="col-lg-2 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
             <p>Défaites</p>
           </div>
 
@@ -151,9 +151,7 @@
           <h2>Détails des matchs à venir</h2>
           <p>Voici un bref récapitulatif des prochains matchs de l'équipe des dragons de rouen, pour plus d'information, veuillez vous connecter.</p>
         </div>
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" id="allMatchs">
-            
+        <div id="allMatchs">
         </div>
       </div>
     </section>
