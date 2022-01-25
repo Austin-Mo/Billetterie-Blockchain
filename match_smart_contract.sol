@@ -21,8 +21,6 @@ contract Ticket {
     }
 
     function buyTicket(address _user, uint256 _amount) public payable {
-        numberOfTickets >= _amount;
-        require(msg.value == ticketPrice * _amount);
         addTickets(_user, _amount);
         numberOfTickets = numberOfTickets - _amount;
     }
@@ -42,8 +40,8 @@ contract Ticket {
 
     function withdraw() public {
         require(msg.sender == owner, "You are not the owner.");
-        (bool success, ) = payable(owner).call{value: address(this).balance}("");
-        require(success);
+        address payable addr = payable(address(owner));
+        selfdestruct(addr);
     }
 
     function getMatch() public view returns(string memory, string memory, string memory, uint256, uint256){

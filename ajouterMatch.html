@@ -1,9 +1,3 @@
-<?php
-include 'fonctions.php';
-session_start();
-is_connected('profPage');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +5,12 @@ is_connected('profPage');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Project Manager</title>
+  <title>Dragons Rouen</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/logo-esig.png" rel="icon">
+  <link href="assets/img/logoDragon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -31,141 +25,164 @@ is_connected('profPage');
 
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="index.js"></script>
 </head>
 
 <body>
 
-  <!-- navbar -->
-  <?php 
-  include 'navbarConnected.php';
-  ?>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      //redirectUser();
+      $('#date').val(new Date().toDateInputValue());
+  });
+</script>
 
-  <!-- END navbar -->
+<!-- ======= navbar ======= -->
+<header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo" style="color: #fff;"><a href="index.php"></a>Billetterie Dragons Rouen</h1 >
 
 
-  <main id="main">
+      <!-- NAVBAR -->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#infos">Informations</a></li>
+          <li><a class="nav-link scrollto" href="#matchs">Matchs</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contacts</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav>
+  <!-- END NAVBAR -->
+
+</div>
+</header>
+<!-- END navbar -->
 
 
-    <!-- compteurs -->
-    <section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_etudiants(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Étudiants</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_projets(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projets</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_inscrits(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Inscriptions</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="<?php echo get_nb_profs(); ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Professeurs</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- END compteurs -->
-
+<main id="main">
 
     <!-- Detail projets -->
     <section id="projects" class="services section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Ajouter un projet</h2>
-          <p>Voici les informations à inscrire pour ajouter un projet</p>
-        </div>
-
-        <div class="container" data-aos="fade-up">
+          <h2>Création de Match</h2>
+      </div>
+      <div class="container" data-aos="fade-up">
           <div class="row justify-content-md-center">
-            <!-- Main -->
-            <div id="main">
-              <div class="inner">
-                <!-- Formulaire -->
-                <section id="formulaire" > 
-                  <form method="post" action="tt_ajouterProjet.php" enctype="multipart/form-data">
-                    <div class="row justify-content-md-center">
-                      <div class="input-group" style="width:60%; margin-bottom: 1em;">
-                        <span class="input-group-text">Titre :</span>
-                        <input class="form-control" type="text" name="titre" id="titre" required>
-                      </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                      <div class="input-group" style="width:60%; margin-bottom: 1em;">
-                        <span class="input-group-text">Description :</span>
-                        <textarea  class="form-control" type="text" name="description" id="description" required></textarea>
-                      </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                      <div class="input-group" style="width:60%; margin-bottom: 1em;">
-                        <span class="input-group-text">Nombre de places disponibles :</span>
-                        <input class="form-control" type="text" name="nbPlaceDispo" id="nbPlaceDispo" required>
-                      </div>
-                    </div>
-
-                    <div class="row justify-content-md-center">
-                      <!-- nouveau pdf du projet à modifier -->
-                      <div class="input-group"  style="width:60%; margin-bottom: 1em;">
-                        <input class="form-control" type="file" name="pdf" id="pdf" accept="application/pdf,application/vnd.ms-excel">
-                      </div>
-                    </div>
-
-                    <div class="row justify-content-md-center">
-                      <div class="input-group" style="width:30%;">
-                        <input class="btn btn-primary mb-3 form-control" type="submit" value="Envoyer"/>
-                      </div>
-                    </div>
-                  </div>
-
-                </form>
-              </section>
+            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <p><input type="text" id="domicile" class="form-control" placeholder="Equipe domicile" required/></p>
+                <hr>
+                <p><input type="text" id="exterieur" class="form-control" placeholder="Equipe extérieur" required/></p>
+                <hr>
+                <p>Date : <input type="date" id="date" name="date" required/></p>
+                <hr>
+                <p>Prix : <input type="number" id="price" value="0.01" name="price" min="0.01" step="0.01" required/>  ETH</p>
+                <hr>
+                <p>Nombre de places : <input type="number" id="numberOfPlace" value="10" name="numberOfPlace" min="10" step="10" required/></p>
+                <hr>
+                <button class="btn btn-primary" type="submit" name="idProjet" onclick="createMatch()">
+                    Créer le Match
+                </button>
             </div>
-          </div>
         </div>
-
-        
-        
-
-
-        <script>
-    ///////////////////////////////////////////////////////////////////
-    //script qui vérifie que le pdf uploadé n'est pas trop volumineux
-    var uploadField = document.getElementById("pdf");
-
-    uploadField.onchange = function() {
-      if(this.files[0].size > 2097152){
-        alert("Attention ! Votre fichier est trop volumineux !");
-        this.value = "";
-      };
-    };
-    ///////////////////////////////////////////////////////////////////
-  </script>
-
-
+    </div>
 </div>
 </div>
-</div>
-</div>
-
-
 </section>
 <!-- END Details projets-->
 
+
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Contacts</h2>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="info-box mb-4">
+          <i class="bx bx-map"></i>
+          <h3>BUREAUX</h3>
+          <p>25 rue Jean-Philippe Rameau</br>76000 - ROUEN</p>
+      </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6">
+    <div class="info-box  mb-4">
+      <i class="bx bx-map"></i>
+      <h3>PATINOIRE</h3>
+      <p>Avenue Jacques Chastellain</br>76000 - ROUEN</p>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+    <div class="info-box  mb-4">
+      <i class="bx bx-phone-call"></i>
+      <h3>Téléphone</h3>
+      <p>02 35 88 96 88</p></br>
+  </div>
+</div>
+
+</div>
+</div>
+</section><!-- End Contact Section -->
+
 </main><!-- End #main -->
 
-<?php include 'footer.php' ?>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>DRAGONS</h3>
+            <p>
+              25 rue Jean-Philippe Rameau,<br>
+              76000 Rouen<br>
+              France <br><br>
+              <strong>Téléphone:</strong> 02 35 88 96 88<br>
+          </p>
+      </div>
+
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Liens utiles</h4>
+        <ul>
+          <li><i class="bx bx-chevron-right"></i> <a href="#hero">Accueil</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="#infos">À propos</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="#matchs">Matchs</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contacts</a></li>
+      </ul>
+  </div>
+
+</div>
+</div>
+</div>
+
+<div class="container">
+
+  <div class="copyright-wrap d-md-flex py-4">
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Dragons de Rouen</span></strong>. All Rights Reserved
+    </div>
+</div>
+</div>
+
+</div>
+</footer>
+<!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
